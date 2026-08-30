@@ -1,0 +1,31 @@
+{
+  "name": "SNIPR WebMCP",
+  "description": "Sanitized example of the WebMCP-style tools used by the private SNIPR implementation.",
+  "tools": [
+    {
+      "name": "snipr_get_assignment_context",
+      "type": "read",
+      "description": "Returns scoped assignment, address, room, and resident-choice context for an authorized user."
+    },
+    {
+      "name": "snipr_search_catalog",
+      "type": "read",
+      "description": "Searches product/catalog information relevant to a room or element."
+    },
+    {
+      "name": "snipr_get_planning",
+      "type": "read",
+      "description": "Returns planning status and available inspection slots for an assignment."
+    },
+    {
+      "name": "snipr_propose_planning_action",
+      "type": "write_requires_approval",
+      "description": "Prepares a planning action, then requires explicit human approval before writing back to SNIPR."
+    }
+  ],
+  "safety": {
+    "source_of_truth": "SNIPR",
+    "write_policy": "Human approval required before operational changes",
+    "scope": "Assignment-specific, user-authorized context only"
+  }
+}
